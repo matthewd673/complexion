@@ -92,14 +92,20 @@ namespace complexion
                     case ">":
                         //greater
                         if(commands.Length > 1)
-                            currentValue = Convert.ToInt32(commands[1]) + 1;
+                            if(commands[1] != "$")
+                                currentValue = Convert.ToInt32(commands[1]) + 1;
+                            else
+                                currentValue = fileValue + 1;
                         else
                             currentValue++;
                         break;
                     case "<":
                         //less
                         if(commands.Length > 1)
-                            currentValue = Convert.ToInt32(commands[1]) - 1;
+                            if(commands[1] != "$")
+                                currentValue = Convert.ToInt32(commands[1]) - 1;
+                            else
+                                currentValue = fileValue - 1;
                         else
                             currentValue--;
                         break;
